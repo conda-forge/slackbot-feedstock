@@ -1,5 +1,5 @@
 {% set name = "slackbot" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2dccc17556b83b396e73e390edc4cd5befa4266652e76e14d3ac92487c4631a3
+  sha256: d413c5bd410a1f899e3953bbd2cb1aae0e963d732d011c8da9cbaefdd4e041b1
 
 build:
   number: 0
