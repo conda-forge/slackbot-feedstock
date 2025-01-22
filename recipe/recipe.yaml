@@ -1,6 +1,6 @@
 context:
   name: slackbot
-  version: 1.0.0
+  version: 1.0.5
 
 package:
   name: ${{ name|lower }}
@@ -8,35 +8,35 @@ package:
 
 source:
   url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 2dccc17556b83b396e73e390edc4cd5befa4266652e76e14d3ac92487c4631a3
+  sha256: d413c5bd410a1f899e3953bbd2cb1aae0e963d732d011c8da9cbaefdd4e041b1
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
   host:
-    - python
+    - python ${{ python_min }}.*
     - pip
     - request
     - websocket-client >=0.22.0,<=0.44.0
     - slacker
     - six
   run:
-    - python
-    - request
-    - websocket-client >=0.22.0,<=0.44.0
-    - slacker
-    - six
+    - python >=${{ python_min }}
+    - requests >=2.4.0
+    - websocket-client >=0.22.0,<=1.6
+    - slacker >=0.9.50
+    - six >=1.10.0
 
 tests:
   - python:
       imports:
         - slackbot
-
       python_version: ${{ python_min }}.*
+      
 about:
   license: MIT
   license_file: LICENSE.txt
